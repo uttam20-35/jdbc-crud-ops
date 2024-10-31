@@ -2,9 +2,9 @@ package pojo;
 
 public class Employee {
 
-    Long eid;
-    String ename;
-    int age;
+    private Long eid;
+    private String ename;
+    private int age;
 
     public Employee() {
     }
