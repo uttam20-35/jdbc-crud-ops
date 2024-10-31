@@ -7,32 +7,43 @@ import java.util.Scanner;
 public class EmployeeMain {
     public static void main(String[] args) {
 
-        System.out.println("1. List of the Employees");
-        System.out.println("2. Add new Employee");
-        System.out.println("3. Search Employee");
-        System.out.println("4. Delete Employee");
-        System.out.println("5. Update Employee");
-        System.out.println("Select above Numbers for the operations :");
+        Scanner sc = new Scanner(System.in);
+        EmployeeImpl employee = new EmployeeImpl();
 
-        Scanner sc =new Scanner(System.in);
-        int number= sc.nextInt();
+        while (true) {
+            System.out.println("1. List of the Employees");
+            System.out.println("2. Add new Employee");
+            System.out.println("3. Search Employee");
+            System.out.println("4. Delete Employee");
+            System.out.println("5. Update Employee");
+            System.out.println("0. For Exit");
+            System.out.println("Select above Numbers for the operations :");
+            int number = sc.nextInt();
 
-        EmployeeImpl employee =new EmployeeImpl();
-
-        switch (number){
-
-            case 1: employee.getAllEmployees();
-            break;
-            case 2: employee.addEmployee();
-            break;
-            case 3: employee.getEmployeeById();
-            break;
-            case 4: employee.deleteEmployee();
-            break;
-            case 5: employee.updateEmployeeById();
-            break;
-            default:
-                System.out.println("Wrong input");
+            switch (number) {
+                case 1:
+                    employee.getAllEmployees();
+                    break;
+                case 2:
+                    employee.addEmployee();
+                    break;
+                case 3:
+                    employee.getEmployeeById();
+                    break;
+                case 4:
+                    employee.deleteEmployee();
+                    break;
+                case 5:
+                    employee.preloadData();
+                    employee.updateEmployeeById();
+                    break;
+                case 0:
+                    System.out.println("Exiting");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Wrong input");
+            }
         }
     }
 }
